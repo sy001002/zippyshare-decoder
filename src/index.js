@@ -117,37 +117,4 @@ async function main(url, timeout) {
    };
 }
 
-const DEFAULT_OPTS = {
-   timeout: 30000,
-   retry: 3,
-   retryDelay: 3000
-};
-
-function delay(timeout) {
-   return new Promise(resolve => setTimeout(resolve, timeout));
-}
-
-async function mainWithRetry(url, opts) {
-   opts = opts || {};
-   opts = {...DEFAULT_OPTS, ...opts};
-
-   opts.timeout = opts.timeout < 0 ? DEFAULT_OPTS.timeout : opts.timeout;
-   opts.retry = opts.retry < 1 ? DEFAULT_OPTS.retry : opts.retry;
-   opts.retryDelay = opts.retryDelay < 0 ? DEFAULT_OPTS.retryDelay : opts.retryDelay;
-
-   let count = 0;
-   while(1) {
-      try {
-         const result = await main(url, opts.timeout);
-         return result;
-      } catch(err) {
-         count += 1;
-         if( count >= opts.retry )
-            throw err;
-         else
-            await delay(opts.retryDelay);
-      }
-   }
-}
-
-module.exports = mainWithRetry;
+module.exports = main;
