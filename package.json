@@ -1,6 +1,6 @@
 {
   "name": "zippyshare-decoder",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "main": "src/index.js",
   "repository": "https://sam40305@bitbucket.org/sam40305/zippyshare-decoder.git",
   "author": "Shuo Yang <shuo.yang.tek@gmail.com>",

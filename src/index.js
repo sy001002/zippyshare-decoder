@@ -113,7 +113,8 @@ async function main(url, timeout) {
    return {
       url: realUrl,
       cookie,
-      filename
+      filename,
+      range: 'bytes'
    };
 }
 

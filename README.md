@@ -6,6 +6,7 @@ zsDecoder('<url>', 30000)
    .then(data => console.log(data))
    /*{
       url: '<real_url>',
+      range: 'bytes',
       cookie: '<needed cookie>',
       filename: '<filename>'
    }*/
